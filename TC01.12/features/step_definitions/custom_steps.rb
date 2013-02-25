@@ -122,7 +122,7 @@ id='media_griditem_thumbnail'
 if waittillviewisshown(view,id)
 else
        
-        puts 'Cloud video menu was not shown in time'
+        puts 'Cloud videos list were not shown in time'
         performAction('wait_for_view_by_id', 'expectedview',1)
         end
 performAction('wait_for_view_by_id','media_griditem_thumbnail')
@@ -166,7 +166,6 @@ Then /^I see the video menu again$/ do
 view='imageview'
 id='media_griditem_thumbnail'
 if waittillviewisshown(view,id)
-system 'adb logcat -c' # clearing the logs
 else
        
         puts 'Cloud video menu was not shown in time'
@@ -175,9 +174,81 @@ else
 end
 
 
+When /^I open cloud music menu$/ do
+performAction('wait_for_view_by_id','menu_button')
+performAction('click_on_view_by_id','menu_button')
+performAction('wait_for_view_by_id','sliding_menu_item_music')
+performAction('click_on_view_by_id','sliding_menu_item_music')
+end
+
+Then /^I see the uploaded music in list view$/ do
+view='imageview'
+id='media_listitem_thumbnail'
+if waittillviewisshown(view,id)
+else
+       
+        puts 'Cloud music menu was not shown in time'
+        performAction('wait_for_view_by_id', 'expectedview',1)
+        end
+end
+
+When /^I open one of the music$/ do
+system 'adb logcat -b events -c' # clearing the logs
+view='imageview'
+id='media_listitem_thumbnail'
+if waittillviewisshown(view,id)
+else
+       
+        puts 'Cloud music list was not shown in time'
+        performAction('wait_for_view_by_id', 'expectedview',1)
+        end
+performAction('wait_for_view_by_id','media_listitem_thumbnail')
+sleep 2
+performAction('click_on_view_by_id','media_listitem_thumbnail')
+end
+
+Then /^I can see the music is opened by the audio player$/ do
+count = 1
+value =""
+while  (value == "")
+value=`adb logcat -b events -d | grep android.intent.action.VIEW`
+sleep(1.0/5.0)
+if count == 100
+puts 'Music player was not opened in time'
+   performAction('wait_for_view_by_id', 'expectedview',1)
+else
+count = count + 1
+end 
+end
+sleep 15
+end
+
+Then /^I listen to the full music$/ do
+count = 1  
+while (count <=10000)
+#queryparam = "\""+view+ " id:'" + id + "'"
+sleep 0.2
+if (query("imageview").to_s.include? 'media_listitem_thumbnail') == true
+break
+else
+end
+end
+end
+
+When /^the music is fully played$/ do
+end
 
 
-
+Then /^I see the music menu again$/ do
+view='imageview'
+id='media_listitem_thumbnail'
+if waittillviewisshown(view,id)
+else
+       
+        puts 'Cloud music menu was not shown in time'
+        performAction('wait_for_view_by_id', 'expectedview',1)
+        end
+end
 
 def waittillviewisshown(view,id)
 count = 1  
