@@ -33,3 +33,10 @@ query("textview")
 query("textview")
 exit
 exit
+start_test_server_in_background
+query("imageview id:'media_griditem_thumbnail'").to_s.include? 'media_griditem_thumbnail')
+query("imageview id:'media_griditem_thumbnail'").to_s.include? 'media_griditem_thumbnail'
+query("textview id:'backup_status_text'").to_s.include? '1 photo'
+query("textview id:'backup_status_text'").to_s.include? '1 photo'
+exit
+exit
