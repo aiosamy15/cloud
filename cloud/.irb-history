@@ -1,0 +1,35 @@
+start_test_server_in_background
+start_test_server_in_background
+query("textview")
+query("textview")
+query("textview, id: ")
+query("textview" ,  :id)
+start_test_server_in_background
+exit
+start_test_server_in_background
+query("textview" ,  :id)
+query("textview")
+query("buttonview")
+query("radiobuttonview")
+query("radio")
+query("listview")
+query("viewbackup")
+exit
+start_test_server_in_background
+start_test_server_in_background
+start_test_server_in_background
+query("radiobutton")
+performAction('click_on_view_by_id', 'radio_button_choice_turnoff_autobackup')
+exit
+start_test_server_in_background
+query("buttonview")
+query("textview"")
+query("textview")
+performAction('wait_for_view_by_id', 'button_next_step')
+exit
+start_test_server_in_background
+query("button")
+query("textview")
+query("textview")
+exit
+exit
