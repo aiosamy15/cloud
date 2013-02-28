@@ -199,12 +199,12 @@ end
 Given /^I login to cloud '(.*)' server with '(.*)' as user and '(.*)' as password$/ do |opco, username,password|
 
 # Executing pre condition
-begin
-macro 'I signup'
-puts ' executing precondition signup'
-rescue Exception => e
-puts ' executing precondition signup'
-end
+#begin
+#macro 'I signup'
+#puts ' executing precondition signup'
+#rescue Exception => e
+#puts ' executing precondition signup'
+#end
 
 findurl(opco)
    @login_page = site.login_page.open
@@ -248,7 +248,7 @@ end
 
 
 
-Given /^there are no picture in cloud server$/ do
+Given /^there are no picture in cloud$/ do
 begin
 macro 'I signup'
 macro 'I delete cloud picture'
@@ -529,7 +529,7 @@ view='gridview'
 id='latest_items_preview'
 if waittillviewisshown(view,id)
 elapsedTime = Time.now.to_f - $startTime
-   puts "KPI-For-Nagios: cloud;startup|OOBE startup time for cloud app;time="+elapsedTime.to_s+"s"
+   puts "KPI-For-Nagios: cloud;startup| startup time for cloud app;time="+elapsedTime.to_s+"s"
 else
         #macro 'I take a screenshot'
         puts 'Cloud main page with recently uploaded photos was not shown in time'
@@ -593,7 +593,7 @@ performAction('click_on_view_by_id' , 'delete_file_done_button')
 $deletedone = 1
 performAction('wait_for_view_by_id','menu_button')
 #assert_equal((query("imageview id:'media_griditem_thumbnail'").to_s.include? 'media_griditem_thumbnail'), false)
-assert_equal((query("textview id:'backup_status_text'").to_s.include? '0 photos'), true)
+#assert_equal((query("textview id:'backup_status_text'").to_s.include? '0 photos'), true)
 
 
 else

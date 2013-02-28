@@ -2,7 +2,7 @@ Feature: Picture upload via web
 
 @web
 Scenario: Upload file from PC to cloud Server
-Given there are no picture in cloud server
+Given there are no picture in cloud
 Given I login to cloud 'Germany' server with 'aiosamy12@gmail.com' as user and 'Keethan12' as password
 Then I take a screenshot of the cloud server customer page
 Then I upload 'Buddha8.jpeg' picture to the cloud server
