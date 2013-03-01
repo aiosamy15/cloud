@@ -266,10 +266,10 @@ end
 # Android Client
 
 Given /^I do not have any files in the device$/ do
-#system 'adb shell pm clear com.vodafone.cloud2'
+#system 'adb -s $ADB_DEVICE_ARG shell  pm clear com.vodafone.cloud2'
 begin
 puts ' Executing precondition'
-system 'adb shell pm clear com.vodafone.cloud2'
+system 'adb -s $ADB_DEVICE_ARG shell pm clear com.vodafone.cloud2'
 system ENV["remove"]
 sleep 2
 system 'adb reboot'
@@ -281,8 +281,8 @@ end
 
 Given /^cloud app is running on the device$/ do
 system 'adb kill-server'
-sleep 3
-system 'adb shell am start -a android.intent.action.MAIN -n sh.calaba.android.test/sh.calaba.instrumentationbackend.WakeUp'
+sleep 1
+system 'adb -s $ADB_DEVICE_ARG shell  am start -a android.intent.action.MAIN -n sh.calaba.android.test/sh.calaba.instrumentationbackend.WakeUp'
 
   $startTime = Time.now.to_f
   start_test_server_in_background
@@ -388,10 +388,10 @@ end
 
 
 Given /^I do have picture in the device$/ do
-#system 'adb shell pm clear com.vodafone.cloud2'
+#system 'adb -s $ADB_DEVICE_ARG shell pm clear com.vodafone.cloud2'
 begin
 puts ' Executing precondition'
-system 'adb shell pm clear com.vodafone.cloud2'
+system 'adb -s $ADB_DEVICE_ARG shell  pm clear com.vodafone.cloud2'
 system ENV["push"]
 sleep 2
 system 'adb reboot'
@@ -517,7 +517,7 @@ end
 Given /^I do have picture in the device and in cloud$/ do
 begin
 puts ' Executing precondition'
-system 'adb shell pm clear com.vodafone.cloud2'
+system 'adb -s $ADB_DEVICE_ARG shell pm clear com.vodafone.cloud2'
 rescue Exception => e
 puts ' Executing precondition'
 end
@@ -674,7 +674,7 @@ end
 # precondition signup or login in device
 Then /^I signup$/ do
 begin
-system 'adb shell pm clear com.vodafone.cloud2'
+system 'adb -s $ADB_DEVICE_ARG shell pm clear com.vodafone.cloud2'
   start_test_server_in_background
   $indevice=1
 view='textview'
@@ -682,7 +682,7 @@ id ='textView_safe_storage_splashscreen_descr'
 if waittillviewisshown(view,id)
 else
         #macro 'I take a screenshot'
-        puts 'Safe storage details view was not able to show up in time'
+   #     puts 'Safe storage details view was not able to show up in time'
         performAction('exit_wait_for_view_by_id', 'expectedview')
         #exit
         end
@@ -697,7 +697,7 @@ if waittillviewisshown(view,id)
          $startTime = Time.now.to_f
 else
         #macro 'I take a screenshot'
-        puts 'Automatic upload details view was not able to show up in time'
+    #    puts 'Automatic upload details view was not able to show up in time'
         performAction('exit_wait_for_view_by_id', 'expectedview')
         #exit
         end
@@ -718,7 +718,7 @@ if waittillviewisshown(view,id)
       
 else
         #macro 'I take a screenshot'
-        puts 'Account status was not able to show up in time'
+     #   puts 'Account status was not able to show up in time'
         performAction('exit_wait_for_view_by_id', 'expectedview')
         #exit
         end
@@ -729,7 +729,7 @@ if waittillviewisshown(view,id)
 
 else
        #macro 'I take a screenshot'
-        puts 'Not able signup in time'
+      #  puts 'Not able signup in time'
 performAction('exit_wait_for_view_by_id', 'expectedview')
 #exit
 end
@@ -762,7 +762,7 @@ id='login_userid_info'
 if waittillviewisshown(view,id)
 performAction('press_button_with_text', 'Log in')
 else
-        puts 'Account status was not able to show up in time'
+       # puts 'Account status was not able to show up in time'
 performAction('exit_wait_for_view_by_id', 'expectedview')
 end
 
@@ -771,7 +771,7 @@ view='textview'
 id = 'textview_backup_media_type_choices_descr'
 if waittillviewisshown(view,id)
 else
-        puts 'Not able signup in time'
+#        puts 'Not able signup in time'
 performAction('exit_wait_for_view_by_id', 'expectedview')
 end
 
@@ -783,7 +783,7 @@ performAction('wait_for_view_by_id', 'button_backup_later')
 performAction('click_on_view_by_id', 'button_backup_later')
 shutdown_test_server
 rescue Exception => e
-puts 'running precondition'
+#puts 'running precondition'
 end
 end
 end
