@@ -11,7 +11,7 @@ elapsedTime = Time.now.to_f - $startTime
 else
        
         puts 'Cloud main page with recently uploaded photos was not shown in time'
-        performAction('exit_wait_for_view_by_id', 'expectedview')
+        performAction('wait_for_view_by_id', 'expectedview',1)
         end
 end
 
@@ -30,7 +30,7 @@ if waittillviewisshown(view,id)
 else
        
         puts 'Cloud picture menus was not shown in time'
-        performAction('exit_wait_for_view_by_id', 'expectedview')
+        performAction('wait_for_view_by_id', 'expectedview',1)
         end
 end
 
@@ -41,7 +41,7 @@ if waittillviewisshown(view,id)
 else
        
         puts 'Cloud picture menus was not shown in time'
-        performAction('exit_wait_for_view_by_id', 'expectedview')
+        performAction('wait_for_view_by_id', 'expectedview',1)
         end
 performAction('wait_for_view_by_id','media_griditem_thumbnail')
 sleep 2
@@ -89,7 +89,7 @@ if waittillviewisshown(view,id)
 else
        
         puts 'Cloud picture menus was not shown in time'
-        performAction('exit_wait_for_view_by_id', 'expectedview')
+        performAction('wait_for_view_by_id', 'expectedview',1)
         end
 
 performAction('wait_for_view_by_id','media_griditem_thumbnail')
@@ -111,7 +111,7 @@ if waittillviewisshown(view,id)
 else
        
         puts 'Cloud video menu was not shown in time'
-        performAction('exit_wait_for_view_by_id', 'expectedview')
+        performAction('wait_for_view_by_id', 'expectedview',1)
         end
 end
 
@@ -123,7 +123,7 @@ if waittillviewisshown(view,id)
 else
        
         puts 'Cloud videos list were not shown in time'
-        performAction('exit_wait_for_view_by_id', 'expectedview')
+        performAction('wait_for_view_by_id', 'expectedview',1)
         end
 performAction('wait_for_view_by_id','media_griditem_thumbnail')
 sleep 2
@@ -138,7 +138,7 @@ value=`adb logcat -b events -d | grep android.intent.action.VIEW`
 sleep(1.0/5.0)
 if count == 100
 puts 'Media player was not opened in time'
-   performAction('exit_wait_for_view_by_id', 'expectedview')
+   performAction('wait_for_view_by_id', 'expectedview',1)
 else
 count = count + 1
 end 
@@ -149,7 +149,7 @@ end
 
 Then /^I watch the full video$/ do
 count = 1  
-while (count <=500)
+while (count <=10000)
 #queryparam = "\""+view+ " id:'" + id + "'"
 sleep 0.2
 if (query("imageview").to_s.include? 'media_griditem_thumbnail') == true
@@ -169,7 +169,7 @@ if waittillviewisshown(view,id)
 else
        
         puts 'Cloud video menu was not shown in time'
-        performAction('exit_wait_for_view_by_id', 'expectedview')
+        performAction('wait_for_view_by_id', 'expectedview',1)
         end
 end
 
@@ -188,7 +188,7 @@ if waittillviewisshown(view,id)
 else
        
         puts 'Cloud music menu was not shown in time'
-        performAction('exit_wait_for_view_by_id', 'expectedview')
+        performAction('wait_for_view_by_id', 'expectedview',1)
         end
 end
 
@@ -200,7 +200,7 @@ if waittillviewisshown(view,id)
 else
        
         puts 'Cloud music list was not shown in time'
-        performAction('exit_wait_for_view_by_id', 'expectedview')
+        performAction('wait_for_view_by_id', 'expectedview',1)
         end
 performAction('wait_for_view_by_id','media_listitem_thumbnail')
 sleep 2
@@ -215,7 +215,7 @@ value=`adb logcat -b events -d | grep android.intent.action.VIEW`
 sleep(1.0/5.0)
 if count == 100
 puts 'Music player was not opened in time'
-   performAction('exit_wait_for_view_by_id', 'expectedview')
+   performAction('wait_for_view_by_id', 'expectedview',1)
 else
 count = count + 1
 end 
@@ -225,7 +225,7 @@ end
 
 Then /^I listen to the full music$/ do
 count = 1  
-while (count <=500)
+while (count <=10000)
 #queryparam = "\""+view+ " id:'" + id + "'"
 sleep 0.2
 if (query("imageview").to_s.include? 'media_listitem_thumbnail') == true
@@ -246,7 +246,7 @@ if waittillviewisshown(view,id)
 else
        
         puts 'Cloud music menu was not shown in time'
-        performAction('exit_wait_for_view_by_id', 'expectedview')
+        performAction('wait_for_view_by_id', 'expectedview',1)
         end
 end
 
