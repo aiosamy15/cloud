@@ -272,7 +272,7 @@ puts ' Executing precondition'
 system 'adb -s $ADB_DEVICE_ARG shell pm clear com.vodafone.cloud2'
 system ENV["remove"]
 sleep 2
-system 'adb reboot'
+system 'adb -s $ADB_DEVICE_ARG reboot'
 sleep 80
 rescue Exception => e
 puts ' Executing precondition'
