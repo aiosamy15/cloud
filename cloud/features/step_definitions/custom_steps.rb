@@ -272,17 +272,17 @@ begin
 system 'adb -s $ADB_DEVICE_ARG shell pm clear com.vodafone.cloud2'
 system ENV["remove"]
 sleep 2
-system 'adb -s $ADB_DEVICE_ARG reboot'
-sleep 80
+#system 'adb -s $ADB_DEVICE_ARG reboot'
+#sleep 80
 rescue Exception => e
 #puts ' Executing precondition'
 end
 end
 
 Given /^cloud app is running on the device$/ do
-system 'adb kill-server'
-sleep 1
-system 'adb -s $ADB_DEVICE_ARG shell  am start -a android.intent.action.MAIN -n sh.calaba.android.test/sh.calaba.instrumentationbackend.WakeUp'
+#system 'adb kill-server'
+#sleep 1
+#system 'adb -s $ADB_DEVICE_ARG shell  am start -a android.intent.action.MAIN -n sh.calaba.android.test/sh.calaba.instrumentationbackend.WakeUp'
 
   $startTime = Time.now.to_f
   start_test_server_in_background
@@ -394,8 +394,8 @@ begin
 system 'adb -s $ADB_DEVICE_ARG shell  pm clear com.vodafone.cloud2'
 system ENV["push"]
 sleep 2
-system 'adb -s $ADB_DEVICE_ARG reboot'
-sleep 80
+#system 'adb -s $ADB_DEVICE_ARG reboot'
+#sleep 80
 rescue Exception => e
 #puts ' Executing precondition'
 end
