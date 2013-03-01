@@ -281,8 +281,8 @@ end
 
 Given /^cloud app is running on the device$/ do
 #system 'adb kill-server'
-sleep 1
-system 'adb -s $ADB_DEVICE_ARG shell  am start -a android.intent.action.MAIN -n sh.calaba.android.test/sh.calaba.instrumentationbackend.WakeUp'
+#sleep 1
+#system 'adb -s $ADB_DEVICE_ARG shell  am start -a android.intent.action.MAIN -n sh.calaba.android.test/sh.calaba.instrumentationbackend.WakeUp'
 
   $startTime = Time.now.to_f
   start_test_server_in_background
