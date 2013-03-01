@@ -11,9 +11,9 @@ When /^I login to cloud delete subscription api web page with '(.*)' and '(.*)'$
 begin
 macro 'I signup'
 macro 'I delete cloud picture'
-#puts ' executing precondition signup and delete cloud picture'
+puts ' executing precondition signup and delete cloud picture'
 rescue Exception => e
-#puts ' executing precondition signup delete cloud picture'
+puts ' executing precondition signup delete cloud picture'
 end
 
 
@@ -252,9 +252,9 @@ Given /^there are no picture in cloud$/ do
 begin
 macro 'I signup'
 macro 'I delete cloud picture'
-#puts ' executing precondition signup and delete cloud picture'
+puts ' executing precondition signup and delete cloud picture'
 rescue Exception => e
-#puts ' executing precondition signup delete cloud picture'
+puts ' executing precondition signup delete cloud picture'
 end
 end
 
@@ -268,21 +268,21 @@ end
 Given /^I do not have any files in the device$/ do
 #system 'adb -s $ADB_DEVICE_ARG shell  pm clear com.vodafone.cloud2'
 begin
-#puts ' Executing precondition'
+puts ' Executing precondition'
 system 'adb -s $ADB_DEVICE_ARG shell pm clear com.vodafone.cloud2'
 system ENV["remove"]
 sleep 2
-#system 'adb -s $ADB_DEVICE_ARG reboot'
-#sleep 80
+system 'adb -s $ADB_DEVICE_ARG reboot'
+sleep 80
 rescue Exception => e
-#puts ' Executing precondition'
+puts ' Executing precondition'
 end
 end
 
 Given /^cloud app is running on the device$/ do
-#system 'adb kill-server'
-#sleep 1
-#system 'adb -s $ADB_DEVICE_ARG shell  am start -a android.intent.action.MAIN -n sh.calaba.android.test/sh.calaba.instrumentationbackend.WakeUp'
+system 'adb kill-server'
+sleep 1
+system 'adb -s $ADB_DEVICE_ARG shell  am start -a android.intent.action.MAIN -n sh.calaba.android.test/sh.calaba.instrumentationbackend.WakeUp'
 
   $startTime = Time.now.to_f
   start_test_server_in_background
@@ -390,14 +390,14 @@ end
 Given /^I do have picture in the device$/ do
 #system 'adb -s $ADB_DEVICE_ARG shell pm clear com.vodafone.cloud2'
 begin
-#puts ' Executing precondition'
+puts ' Executing precondition'
 system 'adb -s $ADB_DEVICE_ARG shell  pm clear com.vodafone.cloud2'
 system ENV["push"]
 sleep 2
-#system 'adb -s $ADB_DEVICE_ARG reboot'
-#sleep 80
+system 'adb -s $ADB_DEVICE_ARG reboot'
+sleep 80
 rescue Exception => e
-#puts ' Executing precondition'
+puts ' Executing precondition'
 end
 end
 
@@ -516,10 +516,10 @@ end
 
 Given /^I do have picture in the device and in cloud$/ do
 begin
-#puts ' Executing precondition'
+puts ' Executing precondition'
 system 'adb -s $ADB_DEVICE_ARG shell pm clear com.vodafone.cloud2'
 rescue Exception => e
-#puts ' Executing precondition'
+puts ' Executing precondition'
 end
 end
 
