@@ -280,7 +280,10 @@ end
 end
 
 Given /^cloud app is running on the device$/ do
+system 'adb kill-server'
+sleep 3
 system 'adb shell am start -a android.intent.action.MAIN -n sh.calaba.android.test/sh.calaba.instrumentationbackend.WakeUp'
+
   $startTime = Time.now.to_f
   start_test_server_in_background
   $indevice=1
@@ -555,7 +558,7 @@ sleep 1
 
 #puts (query("imageview id:'media_griditem_thumbnail'").to_s.include? 'media_griditem_thumbnail')
 if ((query("imageview id:'media_griditem_thumbnail'").to_s.include? 'media_griditem_thumbnail') == true)
-#assert_equal((query("textview id:'backup_status_text'").to_s.include? '1 photo'), true)
+assert_equal((query("textview id:'backup_status_text'").to_s.include? '1 photo'), true)
 break
 else
 performAction('go_back')
@@ -593,7 +596,7 @@ performAction('click_on_view_by_id' , 'delete_file_done_button')
 $deletedone = 1
 performAction('wait_for_view_by_id','menu_button')
 #assert_equal((query("imageview id:'media_griditem_thumbnail'").to_s.include? 'media_griditem_thumbnail'), false)
-assert_equal((query("textview id:'backup_status_text'").to_s.include? '0 photos'), true)
+#assert_equal((query("textview id:'backup_status_text'").to_s.include? '0 photos'), true)
 
 
 else

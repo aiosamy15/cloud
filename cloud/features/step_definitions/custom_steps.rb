@@ -280,7 +280,10 @@ end
 end
 
 Given /^cloud app is running on the device$/ do
+system 'adb kill-server'
+sleep 1
 system 'adb shell am start -a android.intent.action.MAIN -n sh.calaba.android.test/sh.calaba.instrumentationbackend.WakeUp'
+
   $startTime = Time.now.to_f
   start_test_server_in_background
   $indevice=1
@@ -555,7 +558,7 @@ sleep 1
 
 #puts (query("imageview id:'media_griditem_thumbnail'").to_s.include? 'media_griditem_thumbnail')
 if ((query("imageview id:'media_griditem_thumbnail'").to_s.include? 'media_griditem_thumbnail') == true)
-#assert_equal((query("textview id:'backup_status_text'").to_s.include? '1 photo'), true)
+assert_equal((query("textview id:'backup_status_text'").to_s.include? '1 photo'), true)
 break
 else
 performAction('go_back')
