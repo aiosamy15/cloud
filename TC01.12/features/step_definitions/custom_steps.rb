@@ -155,6 +155,7 @@ sleep 0.2
 if (query("imageview").to_s.include? 'media_griditem_thumbnail') == true
 break
 else
+count = count + 1
 end
 end
 performAction('exit_wait_for_view_by_id', 'expectedview')
@@ -232,6 +233,7 @@ sleep 0.2
 if (query("imageview").to_s.include? 'media_listitem_thumbnail') == true
 break
 else
+count = count + 1
 end
 end
 performAction('exit_wait_for_view_by_id', 'expectedview')
