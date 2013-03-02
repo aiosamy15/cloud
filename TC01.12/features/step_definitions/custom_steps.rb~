@@ -116,7 +116,7 @@ else
 end
 
 When /^I open one of the videos$/ do
-system 'adb logcat -b events -c' # clearing the logs
+system 'adb -s $ADB_DEVICE_ARG logcat -b events -c' # clearing the logs
 view='imageview'
 id='media_griditem_thumbnail'
 if waittillviewisshown(view,id)
@@ -134,7 +134,7 @@ Then /^I can see the video is opened by the media player$/ do
 count = 1
 value =""
 while  (value == "")
-value=`adb logcat -b events -d | grep android.intent.action.VIEW`
+value=`adb -s $ADB_DEVICE_ARG logcat -b events -d | grep android.intent.action.VIEW`
 sleep(1.0/5.0)
 if count == 100
 puts 'Media player was not opened in time'
@@ -193,7 +193,7 @@ else
 end
 
 When /^I open one of the music$/ do
-system 'adb logcat -b events -c' # clearing the logs
+system 'adb -s $ADB_DEVICE_ARG logcat -b events -c' # clearing the logs
 view='imageview'
 id='media_listitem_thumbnail'
 if waittillviewisshown(view,id)
@@ -211,7 +211,7 @@ Then /^I can see the music is opened by the audio player$/ do
 count = 1
 value =""
 while  (value == "")
-value=`adb logcat -b events -d | grep android.intent.action.VIEW`
+value=`adb -s $ADB_DEVICE_ARG logcat -b events -d | grep android.intent.action.VIEW`
 sleep(1.0/5.0)
 if count == 100
 puts 'Music player was not opened in time'
@@ -233,6 +233,7 @@ break
 else
 end
 end
+performAction('exit_wait_for_view_by_id', 'expectedview')
 end
 
 When /^the music is fully played$/ do

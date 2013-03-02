@@ -157,6 +157,7 @@ break
 else
 end
 end
+performAction('exit_wait_for_view_by_id', 'expectedview')
 end
 
 When /^the video is finished$/ do
@@ -233,6 +234,7 @@ break
 else
 end
 end
+performAction('exit_wait_for_view_by_id', 'expectedview')
 end
 
 When /^the music is fully played$/ do
