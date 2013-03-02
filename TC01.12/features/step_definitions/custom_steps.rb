@@ -149,7 +149,7 @@ end
 
 Then /^I watch the full video$/ do
 count = 1  
-while (count <=500)
+while (count <=3000)
 #queryparam = "\""+view+ " id:'" + id + "'"
 sleep 0.2
 if (query("imageview").to_s.include? 'media_griditem_thumbnail') == true
@@ -227,7 +227,7 @@ end
 
 Then /^I listen to the full music$/ do
 count = 1  
-while (count <=500)
+while (count <=3000)
 #queryparam = "\""+view+ " id:'" + id + "'"
 sleep 0.2
 if (query("imageview").to_s.include? 'media_listitem_thumbnail') == true
