@@ -172,7 +172,8 @@ def myfilesmenu(img1)
 Watir::Wait.until { $browser.link(:id => 'myfiles').exists? }
 $browser.link(:id => 'myfiles').click
 sleep 2
-Watir::Wait.until{$browser.div(:class => 'thumbnail folderRow small_').exist?}
+# commented because the device is deleted
+#Watir::Wait.until{$browser.div(:class => 'thumbnail folderRow small_').exist?}
 assert_equal($browser.text.include?(img1), false)
 end
 end

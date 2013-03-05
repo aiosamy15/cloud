@@ -644,17 +644,30 @@ $browser.button(:class => "buttonAubergine").click
 Watir::Wait.until { $browser.link(:id => 'myfiles').exists? }
 $browser.link(:id => 'myfiles').click
 sleep 2
-Watir::Wait.until{$browser.div(:class => 'thumbnail folderRow small_').exist?}
-Watir::Wait.until{$browser.link(:title => ENV["picturename"]).exist?}
-$browser.link(:title => ENV["picturename"]).right_click
+#used to delete pciture only
+#Watir::Wait.until{$browser.div(:class => 'thumbnail folderRow small_').exist?}
+#Watir::Wait.until{$browser.link(:title => ENV["picturename"]).exist?}
+#$browser.link(:title => ENV["picturename"]).right_click
 
-Watir::Wait.until{$browser.link(:id => 'FileOptionsMenu_filemenu.delete').exist?}
-$browser.link(:id => 'FileOptionsMenu_filemenu.delete').click
+#Watir::Wait.until{$browser.link(:id => 'FileOptionsMenu_filemenu.delete').exist?}
+#$browser.link(:id => 'FileOptionsMenu_filemenu.delete').click
 
+#Watir::Wait.until{$browser.link(:id => 'confirmDeleteForever').exist?}
+#$browser.link(:id => 'confirmDeleteForever').click
+#sleep 3
+#Watir::Wait.until{$browser.div(:class => 'thumbnail folderRow small_').exist?}
+#takewebscreenshot
+#$browser.close
+
+# To delete entire device
+
+$browser.link(:title => ENV["devicename"]).right_click
+Watir::Wait.until{$browser.link(:id => 'FolderOptionsMenu_filemenu.delete').exist?}
+$browser.link(:id => 'FolderOptionsMenu_filemenu.delete').click
 Watir::Wait.until{$browser.link(:id => 'confirmDeleteForever').exist?}
 $browser.link(:id => 'confirmDeleteForever').click
 sleep 3
-Watir::Wait.until{$browser.div(:class => 'thumbnail folderRow small_').exist?}
+Watir::Wait.until{$browser.link(:id => 'myfiles').exists?}
 takewebscreenshot
 $browser.close
 end
