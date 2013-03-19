@@ -1,0 +1,15 @@
+start_test_server_in_background
+query ('viewtype', :id)
+query ('viewtype',id)
+query ('textview')
+performAaction('click_on_view_by_id', 'backup_status_progress_synced_text')
+performAction('click_on_view_by_id', 'backup_status_progress_synced_text')
+query ('textview')
+performAction('click_on_view_by_id', 'backup_info_title')
+query("buttonview")
+query("textView")
+query("textView")
+exit
+start_test_server_in_background
+query("button")
+exit

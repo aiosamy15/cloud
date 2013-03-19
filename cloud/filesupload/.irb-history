@@ -1,0 +1,44 @@
+start_test_server_in_background
+query("textview")
+query("textview")
+start_test_server_in_background
+performAction('wait_for_view_by_id','menu_button')
+performAction('click_on_view_by_id','menu_button')
+performAction('wait_for_view_by_id','backup_status_progress_synced_text')
+performAction('click_on_view_by_id','backup_status_progress_synced_text')
+performAction('wait_for_view_by_id','backup_info_title')
+performAction('click_on_view_by_id','backup_info_title')
+query("buttonview")
+query("textview")
+query("button")
+performAction('click_on_view_by_id','backup_history_activity_button_new_upload')
+query("button")
+exit
+start_test_server_in_background
+query("textview")
+exit
+start_test_server_in_background
+query("textview")
+query(queryparam).to_s.include? id
+query(queryparam).to_s.include? 'id'
+query(My Cloud).to_s.include? id
+query("My Cloud").to_s.include? id
+query("My Cloud").to_s.include? 'id'
+query("My Cloud").to_s.include? 'text'
+query("My Cloud").to_s.include? ''
+query("My Cloud").to_s.include? 'enabled'
+query("My Cloud").to_s.include? ''
+query("My Cloud").to_s.include? ''
+query("My Cloud").to_s.include? ''
+query("My Cloud").to_s.include? ''
+query("My Cloud").to_s.include? ''
+query("Cloud").to_s.include? ''
+query("Cloud").to_s.include? 'view'
+query("Cloud").to_s.include? 'textview'
+query("Cloud").to_s.include? 'textview'
+query("Cloud").to_s.include? 'true'
+query("My Cloud").to_s.include? 'true'
+query("My Cloud").to_s.include? 'cloud'
+query("My Cloud").to_s.include? 'text'
+query("imageview")
+exit

@@ -1,0 +1,22 @@
+start_test_server_in_background
+query ("textview")
+exit
+start_test_server_in_background
+views = performAction('dump_view_hierarchy')
+views = performAction('dump_view_hierarchy')
+exit
+start_test_server_in_background
+exit
+start_test_server_in_background
+exit
+start_test_server_in_background
+exit
+start_test_server_in_background
+views = performAction('dump_view_hierarchy')
+performAction('list_actions')
+exit
+start_test_server_in_background
+start_test_server_in_background
+views = performAction('dump_view_hierarchy')
+puts views['bonusInformation']
+exit
